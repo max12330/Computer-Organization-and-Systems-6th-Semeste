@@ -1,0 +1,139 @@
+\documentclass[coursework, och]{SCWorks1}
+
+\usepackage[utf8]{inputenc}
+\usepackage{cmap}
+\usepackage[T2A]{fontenc}
+\usepackage{graphicx}
+
+\usepackage[sort,compress]{cite}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{fancyvrb}
+\usepackage{longtable}
+\usepackage{array}
+\usepackage[english,russian]{babel}
+
+\usepackage[colorlinks=false]{hyperref}
+
+\renewcommand{\labelenumii}{\arabic{enumi}.\arabic{enumii}.}
+
+\newcommand{\eqdef}{\stackrel {\rm def}{=}}
+
+\newtheorem{lem}{Лемма}
+\newtheorem{definition}{Определение}
+
+\begin{document}
+
+
+\begin{center}
+    МИНОБРНАУКИ РОССИИ
+
+    Федеральное государственное бюджетное образовательное учреждение высшего образования
+
+    <<САРАТОВСКИЙ НАЦИОНАЛЬНЫЙ ИССЛЕДОВАТЕЛЬСКИЙ ГОСУДАРСТВЕННЫЙ УНИВЕРСИТЕТ ИМЕНИ Н.Г. ЧЕРНЫШЕВСКОГО>>
+\end{center}
+
+\vspace{10pt}
+
+\begin{center}
+Кафедра системного анализа и автоматического управления
+\end{center}
+
+\vspace{50pt}
+
+\begin{center}
+    \textbf{Отчет по лабораторной работе 1.}
+\end{center}
+
+\vspace{20pt}
+
+\begin{flushleft}
+Студента 3 курса 321 группы \\
+направления 09.03.01 --- Информатика и вычислительная техника \\
+Факультета компьютерных наук и информационных технологий \\
+Чесакова Максима Евгеньевича
+\end{flushleft}
+
+\vspace{313pt}
+
+\begin{center}
+    Саратов 2026
+\end{center}
+%=================================================================================
+
+\textbf{Цель работы:} освоить начальные навыки работы с одноплатными компьютерами: научиться подключаться к плате через последовательный порт и выполнять базовые операции в консольной среде.
+
+\textbf{Ход работы:}
+\begin{enumerate}[label=\arabic*.]
+    \item Учётная запись в домене лаборатории заведена.
+    \item \texttt{sudo} работает. Выполнена команда \texttt{sudo -i}.
+    \item Подключён одноплатник к ПК через UART-переходник на рисунке 1.
+    \begin{figure}[!ht]
+        \centering
+        \includegraphics[width=14cm]{../1.jpg}
+        \caption{}
+    \end{figure}
+    \item Выполнено подключение к консоли Linux с помощью утилиты tio:
+    
+    Для этого было выяснено имя устройства командой \texttt{dmesg | grep -i "tty"} --- USB0.
+    
+    На рисунке 2 выполнено подключение одноплатника к сети и вставлена microSD-карта с образом операционной системы.
+    \begin{figure}[!ht]
+        \centering
+        \includegraphics[width=14cm]{../2.jpg}
+        \caption{}
+    \end{figure}
+    На рисунке 3 успешное подключение к одноплатнику
+    \item Выполнена авторизация в  системе с учетными данными: root/qwe123 (рис. 3).
+    \begin{figure}[!ht]
+        \centering
+        \includegraphics[width=14cm]{../3.jpg}
+        \caption{}
+    \end{figure}
+    \item Выполнение базовых команд:
+    \begin{enumerate}[label=6.\arabic*.]
+        \item Чтобы узнать текущую нагрузку на ЦП и информацию о нем можно ввести команду \texttt{htop}. Результат приведён на рисунке 4. ЦП загружен на 4\%, используется 60 МБ оперативной памяти из 473 МБ доступной.
+        \begin{figure}[!ht]
+            \centering
+            \includegraphics[width=14cm]{../4.jpg}
+            \caption{}
+        \end{figure}
+        \item Командой \texttt{lsblk} выведена информация о дисках: на одноплатнике один диск объёмом 29,7 ГБ с двумя разделами, один из которых занимает 100 МБ, другой 29,6 ГБ. Подробности на рисунке 5.
+        \begin{figure}[!ht]
+            \centering
+            \includegraphics[width=14cm]{../5.jpg}
+            \caption{}
+        \end{figure}
+        \item Информацию о сетевых интерфейсах можно получить командой \texttt{ifconfig}. В консоли отобразилось два интерфейса: Local Loopback с IP-адресом 127.0.0.1 и wlan0 с IP-адресом 192.168.213.120. Подробности приведены на рисунке 6.
+        \begin{figure}[!ht]
+            \centering
+            \includegraphics[width=14cm]{../6.jpg}
+            \caption{}
+        \end{figure}
+        \item На рисунке 7 изображено создание директории ChesakovME в домашней директории root с помощью команды \texttt{mkdir ChesakovME}. В созданной директории создан файл ChesakovFile.txt с помощью команды \texttt{touch ChesakovFile.txt}. В конец созданного файла была добавлена строка <<Текст Чесакова Максима>> с помощью команды \texttt{echo "Текст Чесакова Максима" >> ChesakovFile.txt}. Далее было выведено содержимое файла в терминал с помощью команды \texttt{cat ChesakovFile.txt}.
+        \begin{figure}[!ht]
+            \centering
+            \includegraphics[width=14cm]{../7.jpg}
+            \caption{}
+        \end{figure}
+
+        \item Последнее, что было сделано --- это выяснено имя хоста, информация о системе, текущая дата командами \texttt{hostname}, \texttt{hostnamectl}, \texttt{date} соотвественно, что также отображено на рисунке 7.
+    \end{enumerate}
+\end{enumerate}
+
+
+\begin{Verbatim}[numbers=left]
+
+\end{Verbatim}
+
+
+
+
+
+
+
+
+
+%=================================================================================
+\end{document}
