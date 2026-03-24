@@ -1,0 +1,1 @@
+regular-xfce-latest-riscv64.tar.xz лежит на флешке
