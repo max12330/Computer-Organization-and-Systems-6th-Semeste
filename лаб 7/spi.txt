@@ -20,6 +20,7 @@ def spi_sequential_test(bus=0, device=0, speed=1000000):
 			time.sleep(0.01) # Небольшая пауза для анализатора
 		spi.close()
 	except Exception as e:
+		print("This is a line of code that you forgot to add to the lab assignment")
 # Запуск теста
 if __name__ == "__main__":
 	# Настройте под вашу плату
